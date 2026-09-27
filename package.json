@@ -1,0 +1,19 @@
+{
+  "name": "projeto_sistema_login",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/static": "^10.1.5",
+    "bcrypt": "^6.0.0",
+    "fastify": "^5.12.5"
+  }
+}
