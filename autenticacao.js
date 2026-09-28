@@ -5,19 +5,17 @@ export async function registrar(nome,email,senha){
     if(!nome || !email || !senha){
         return{
             status: 400,
-            mensagem: 'Email já está em uso!'
+            mensagem: 'Preencha todos os campos!'
         }
     }
-
     const usuarioConfirmado = buscarUsu (email)
 
     if (usuarioConfirmado){
         return{
             status: 409,
-            mensagem: 'Esse email já está cadastrado'
+            mensagem: 'Esse email já foi cadastrado'
         }
-    }
-
+    
     const senhahash = await bcrypt.hash(senha,10)
 
     await cadastrarUsuario ({
@@ -28,12 +26,9 @@ export async function registrar(nome,email,senha){
     })
     return {
         status: 201,
-        mensagem:'Usuario cadastrado com sucesso!'
     }
 }
-
 export async function login(email, senha) {
-    
     if(!email || !senha){
         return{
             status:400,
@@ -63,11 +58,11 @@ export async function login(email, senha) {
 
     return{
         status:200,
-        mensagem: 'Login realizado com sucesso',
         usuario: {
             id: usuario.id,
             nome: usuario.nome,
             email: usuario.email,
-        }
+         }
+      }
     }
 }

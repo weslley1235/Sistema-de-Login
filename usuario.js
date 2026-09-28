@@ -1,10 +1,8 @@
 import fs from 'node:fs'
-
 const caminho = './usuario.json'
 
 export function listaUsuarios(){
     const dados = fs.readFileSync(caminho, 'utf8')
-
     return JSON.parse(dados)
 }
 
@@ -16,7 +14,6 @@ export function cadastrarUsuario(usuario){
     const usuarios = listaUsuarios()
 
     usuarios.push(usuario)
-
     salvarUsu(usuarios)
 }
 
